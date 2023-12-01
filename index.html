@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS/Text si font</title>
+  </head>
+
+  <!-- Body -->
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- Nav  -->
+      <nav>
+        <ul>
+          <li><a href="#introducere">Introducere în CSS</a></li>
+          <li><a href="#selectori">Selectori</a></li>
+          <li><a href="#pseudo"></a>Pseudo-clase de stare</li>
+          <li><a href="#lucrul"></a>Lucrul cu culoarea</li>
+          <li><a href="#cascada"></a>Cascada stilurilor</li>
+          <li><a href="#variabile"></a>>Variabile CSS</li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <h1>Pagina principala</h1>
+
+      <!-- Introducere în CSS -->
+      <section>
+        <h2 id="introducere">Introducere în CSS</h2>
+        <p>
+          CSS (Cascading Style Sheets, foi de stil în cascadă) – este un limbaj
+          pentru descrierea și modificarea aspectului elementelor. HTML este
+          folosit pentru a defini structura și semantica conținutului unui
+          document, în timp ce CSS este folosit pentru stil și poziționare.
+        </p>
+
+        <!-- Sintaxă -->
+        <section>
+          <h3>Sintaxă</h3>
+          <p>
+            Un bloc de cod CSS e definit ca fiind o regulă și e compus dintr-un
+            selector și un grup de anunțuri între acolade.
+          </p>
+          <p>
+            Selectorul specifică browserului la ce elemente să aplice stilurile
+            din această regulă. Fiecare declarație e formată dintr-o pereche
+            proprietate: valoare;, unde proprietatea și valoarea ei sunt
+            separate prin două puncte și un spațiu și trebuie să se termine cu
+            punct și virgulă. Ele descriu exact ceea ce trebuie făcut cu
+            stilurile elementului.
+          </p>
+        </section>
+
+        <!-- Conectarea stilurilor -->
+        <section>
+          <h3>Conectarea stilurilor</h3>
+          <p>
+            Există trei moduri de a adăuga stiluri la un document HTML: stiluri
+            de tip inline (inline styles), stiluri încorporate (embedded
+            stylesheet) și stiluri externe (external stylesheet). Fiecare metodă
+            are avantaje, dezavantaje, limitări și un domeniu de aplicare.
+          </p>
+          <ul>
+            <!-- Stiluri de tip inline -->
+            <section>
+              <h3>Stiluri de tip inline</h3>
+              <p>
+                Stilurile de tip inline sunt scrise direct în tag, în atributul
+                style. Acestea nu pot fi scalate, sunt greu de redefinit și
+                reutilizat, de aceea sunt folosite în cazuri foarte rare. De
+                exemplu, pentru stilurile dinamice care sunt instalate în timpul
+                execuției codului JavaScript, când încă nu se știe care va fi
+                valoarea proprietății.
+              </p>
+              <p>Exemplu :</p>
+              <p>
+                (p style="color:blue; font-size:24px;")Acest text va fi
+                albastru.(/p)
+              </p>
+            </section>
+
+            <!-- Stiluri încorporate -->
+            <section>
+              <h3>Stiluri încorporate</h3>
+              <p>
+                Folosind aceeași abordare, regulile CSS sunt adăugate în
+                interiorul tag-ului (style) de la începutul documentului. Ele nu
+                pot fi reutilizate pe alte pagini și sunt greu de scalat și
+                întreținut.
+              </p>
+              <p>Exemplu :</p>
+              <p>
+                (head) <br />
+                (style type="text/css") <br />
+                p { color: blue; font-size: 24px; } <br />
+                (/style) <br />
+                (/head)
+              </p>
+              <p>Interesant !!!</p>
+              <p>
+                Uneori, această abordare este folosită pentru a optimiza viteza
+                de redare a paginii prin adăugarea celor mai importante stiluri
+                direct în documentul HTML. Această tehnică avansată se numește
+                Critical CSS.
+              </p>
+            </section>
+
+            <!-- Stiluri externe -->
+            <section>
+              <h3>Stiluri externe</h3>
+              <p>
+                Codul CSS extern este ușor de scalat, întreținut și reutilizat
+                pe alte pagini, motiv pentru care reprezintă un standard pentru
+                încorporarea stilurilor. În proiect se creează un fișier de stil
+                separat cu extensia .css și se include în documentul HTML.
+              </p>
+              <ul>
+                <li>
+                  Un dosar css se creează la același nivel cu index.html, iar în
+                  interiorul acestuia se află un fișier de stil styles.css.
+                </li>
+                <li>
+                  În tag-ul (head), folosind tag-ul (link), se conectează un
+                  fișier creat anterior.
+                </li>
+                <li>
+                  Atributul href specifică calea către fișierul de stiluri
+                  relativ la documentul HTML.
+                </li>
+                <li>
+                  Atributul rel specifică tipul documentului conectat –
+                  stylesheet (foaia de stil).
+                </li>
+              </ul>
+              <p>Util !</p>
+              <p>
+                Puteți include oricâte fișiere CSS doriți, adăugând pentru
+                fiecare tag-ul (link).
+              </p>
+            </section>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Selectori -->
+      <section>
+        <h2 id="selectori">Selectori</h2>
+        <p>
+          Cu ajutorul a diferiți selectori, puteți selecta un element sau un
+          grup de elemente. Selectori există destul de mulți, de aceea, haideți
+          să-i analizăm pe cei de bază care sunt folosiți, de altfel, cel mai
+          des.
+        </p>
+        <ul>
+          <!-- Selectorul de element (tag) -->
+          <li>
+            <h3>Selectorul de element (tag)</h3>
+            <p>
+              Descrie cărui tip de elemente îi va fi aplicată regula CSS.
+              Selectorul de elemente nu este suficient de specific pentru a
+              stiliza elemente individuale, așa că este cel mai des folosit
+              pentru a stiliza toate tag-urile de același tip pe pagină. De
+              exemplu, dacă trebuie să înlăturați sublinierea vizuală din toate
+              link-urile documentului.
+            </p>
+            <p>
+              /* Se aplică tuturor paragrafelor de pe pagină */ <br />
+              p { <br />
+              font-size: 24px; <br />
+              } <br />
+
+              /* Se aplică tuturor link-urilor de pe pagină */ <br />
+              a { <br />
+              text-decoration: none; <br />
+              }
+            </p>
+          </li>
+
+          <!-- Selectorul de clasă -->
+          <li>
+            <h3>Selectorul de clasă</h3>
+            <p>
+              În dezvoltarea modernă acesta este un selector de bază. Este
+              utilizat împreună cu atributul global class. Numele clasei este
+              specificat numai în engleză și trebuie să fie un substantiv care
+              descrie ce fel de element este. Pentru a vă extinde vocabularul,
+              utilizați Referințele,
+              <a
+                href="https://github.com/andormade/frontend-glossary"
+                target="_blank"
+                rel="noopener"
+                >Glosarul de termeni</a
+              >
+              și
+              <a
+                href="https://www.impressivewebs.com/css-terms-definitions/"
+                target="_blank"
+                rel="noopener"
+                >Glosarul de cuvinte</a
+              >
+              și abrevieri.
+            </p>
+            <p>
+              CSS folosește selectorul de clasă pentru a stiliza unul sau mai
+              multe elemente cu aceeași valoare a atributului class (numele
+              clasei). Într-un selector, înainte de numele clasei, se pune un
+              punct .
+            </p>
+            <p>
+              /* Se aplică tuturor tag-urilor cu clasa title */ <br />
+              .title { <br />
+              font-weight: 500; <br />
+              } <br />
+              <br />
+              /* Se aplică tuturor tag-urilor cu clasa text */ <br />
+              .text { <br />
+              color: brown; <br />
+              font-size: 18px; <br />
+              } <br />
+              <br />
+              /* Se aplică tuturor tag-urilor cu clasa link */ <br />
+              .link { <br />
+              text-decoration: none; <br />
+              }
+            </p>
+            <p>
+              În numele clasei sunt folosite doar litere mici și liniuțe. De
+              exemplu, list, list-item, logo-image etc. Sublinierea list_item,
+              majusculele ListItem și cifrele listitem27 sunt considerate de
+              prost gust.
+            </p>
+
+            <!-- Compoziția clasei -->
+            <section>
+              <h4>Compoziția clasei</h4>
+              <p>
+                Un element poate avea mai multe clase, iar în acest caz acestea
+                sunt scrise folosind un spațiu.
+              </p>
+              <p>(element class="value1 value2 value3")(/element)</p>
+              <p>
+                Acesta poate fi folosit pentru a combina și reutiliza stiluri.
+                Haideți să creăm marcajul și stilurile pentru o componentă de
+                notificări.
+              </p>
+
+              <!-- Exemplu -->
+              <section>
+                <!-- In HTML -->
+                <section>
+                  <h4>In HTML</h4>
+                  <p>
+                    (p class="alert success) Reîncărcarea contului a fost
+                    finalizată (/p)
+                  </p>
+                  <p>
+                    (p class="alert warning")Atenție, tarifele se vor
+                    schimba(/p)
+                  </p>
+                  <p>(p class="alert error")Eroare tranzacție(/p)</p>
+                </section>
+
+                <!-- In CSS -->
+                <section>
+                  <h4>In CSS</h4>
+                  <p>
+                    În stiluri descriem câteva reguli comune tuturor alertelor
+                    și specifice fiecărui tip.
+                  </p>
+                  <p>
+                    p/* Stiluri comune pentru toate tipurile de alerte */ <br />
+                    .alert {<br />
+                    font-size: 24px;<br />
+                    font-weight: 500;<br />
+                    } <br />
+                    <br />
+                    /* Stiluri specifice pentru fiecare tip */ <br />
+                    .success { <br />
+                    color: green; <br />
+                    } <br />
+                    <br />
+                    .warning { <br />
+                    color: orange; <br />
+                    } <br />
+                    <br />
+                    .error { <br />
+                    color: red; <br />
+                    }
+                  </p>
+                </section>
+              </section>
+            </section>
+          </li>
+
+          <!-- Selectorul de ID -->
+          <li>
+            <h3>Selectorul de ID</h3>
+            <p>
+              Ca și în cazul unei clase, tag-urilor li se poate desemna un
+              atribut global id. Diferența este că valoarea id trebuie să fie
+              unică pe pagină, adică nu pot exista două elemente cu aceleași
+              valori id.
+            </p>
+            <p>(h1 id="title")Titlul paginii(/h1)</p>
+            <p>
+              În selectorul CSS, înainte de numele identificatorului, este
+              plasat simbolul hash #.
+            </p>
+            <p>
+              #title { <br />
+              font-weight: 500; <br />
+              color: orange; <br />
+              }
+            </p>
+            <p>Util !!!</p>
+            <p>
+              Nu utilizați selectori de ID pentru foile de stil. Regula valorii
+              unice face imposibilă reutilizarea stilurilor. Identificatorii
+              sunt destinați pentru "ancore".
+            </p>
+          </li>
+
+          <!-- Selectorul descendent -->
+          <li>
+            <h3>Selectorul descendent</h3>
+            <p>
+              Selectorul descendent, sau selectorul contextual, atribuie stiluri
+              descendenților unui element, indiferent de nivelul imbricare.
+            </p>
+            <p>
+              (a href="")Citiți blogul nostru!(/a) <br />
+
+              (ul class="social-links") <br />
+              (li) <br />
+              (a href="")Twitter <br />
+              (/li) <br />
+              (li) <br />
+              (a href="")Instagram <br />
+              (/li) <br />
+              (li) <br />
+              (a href="")Facebook <br />
+              (/li) <br />
+              (/ul)
+            </p>
+            <p>
+              De exemplu, în loc să setați un stil pentru toate link-urile,
+              trebuie doar să schimbați stilurile care se află în lista cu clasa
+              social-links.
+            </p>
+            <p>
+              /* ❌ Se aplică tuturor link-urilor din document */ <br />
+              a { <br />
+              color: blue; <br />
+              text-decoration: none; <br />
+              } <br />
+              <br />
+              /* ✅ Se aplică numai link-urilor care se află în interiorul
+              tag-ului cu clasa social-links */ <br />
+              .social-links a { <br />
+              color: blue; <br />
+              text-decoration: none; }
+            </p>
+          </li>
+
+          <!-- Selectorul de copil -->
+          <li>
+            <h3>Selectorul de copil</h3>
+            <p>
+              Acesta este un alt selector comun care permite selectarea
+              nemijlocită a copilului în interiorul elementului părinte. Să
+              folosim marcajul pentru un meniu de magazin cu mai multe niveluri,
+              în care trebuie să stilizăm tag-urile
+              <li>din listă cu clasa menu, dar nu și cu clasa submenu.</li>
+            </p>
+
+            <!-- Exemplu -->
+            <section>
+              <h4>Exemplu</h4>
+              <ul class="menu">
+                <li>
+                  Calculatoare și accesorii
+                  <ul class="submenu">
+                    <li>Procesoare</li>
+                    <li>Monitoare</li>
+                    <li>Plăci video</li>
+                  </ul>
+                </li>
+                <li>
+                  Aparate electrocasnice
+                  <ul class="submenu">
+                    <li>Frigidere</li>
+                    <li>Televizoare</li>
+                    <li>Mașini de spălat</li>
+                  </ul>
+                </li>
+                <li>
+                  Produse de uz casnic
+                  <ul class="submenu">
+                    <li>Fotolii</li>
+                    <li>Saltele</li>
+                    <li>Șemineuri electrice</li>
+                  </ul>
+                </li>
+              </ul>
+              <p>
+                Dacă folosiți un selector descendent (contextual), atunci regula
+                CSS va fi aplicată tuturor tag-urilor (li), iar fiecare va avea
+                un chenar roșu.
+              </p>
+              <p>
+                /* ❌ Nu rezolvă problema */ <br />
+                .menu li { <br />
+                border: 1px solid tomato; <br />
+                }
+              </p>
+              <p>
+                Selectorul de copil rezolvă această problemă, selectând doar
+                acele (li) care sunt copii (prima imbricare) din lista ul.menu.
+              </p>
+              <p>
+                /* ✅ Exact ceea ce aveți nevoie */ <br />
+                .menu > li { <br />
+                border: 1px solid tomato; <br />
+                }
+              </p>
+            </section>
+          </li>
+
+          <!-- Selectorul de atribut -->
+          <li>
+            <h3>Selectorul de atribut</h3>
+            <p>
+              Vă permite să aplicați stiluri la elementele cu un anumit atribut
+              sau valoare.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Pseudo-clase de stare -->
+      <section>
+        <h2 id="pseudo">Pseudo-clase de stare</h2>
+        <ul>
+          <!-- Pseudo-clasa :hover -->
+          <li>
+            <h3>Pseudo-clasa :hover</h3>
+          </li>
+
+          <!-- Pseudo-clasa :focus -->
+          <li>
+            <h3>Pseudo-clasa :focus</h3>
+          </li>
+
+          <!-- Pseudo-clasa :active -->
+          <li>
+            <h3>Pseudo-clasa :active</h3>
+          </li>
+
+          <!-- Pseudo-clasa :visited -->
+          <li>
+            <h3>Pseudo-clasa :visited</h3>
+          </li>
+
+          <!-- Hover și tabele -->
+          <li>
+            <h3>Hover și tabele</h3>
+          </li>
+
+          <!-- Proprietatea cursor -->
+          <li>
+            <h3>Proprietatea cursor</h3>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Lucrul cu culoarea -->
+      <section>
+        <h2 id="lucrul">Lucrul cu culoarea</h2>
+        <ul>
+          <!-- Culoarea textului -->
+          <li>
+            <h3>Culoarea textului</h3>
+          </li>
+
+          <!-- Culoarea de fundal -->
+          <li>
+            <h3>Culoarea de fundal</h3>
+          </li>
+
+          <!-- Nume de culori -->
+          <li>
+            <h3>Nume de culori</h3>
+          </li>
+
+          <!-- RGB -->
+          <li>
+            <h3>RGB</h3>
+          </li>
+
+          <!-- HEX -->
+          <li>
+            <h3>HEX</h3>
+          </li>
+
+          <!-- Transparența culorii -->
+          <li>
+            <h3>Transparența culorii</h3>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Cascada stilurilor -->
+      <section>
+        <h2 id="cascada">Cascada stilurilor</h2>
+        <ul>
+          <!-- Specificitatea selectorului -->
+          <li>
+            <h3>Specificitatea selectorului</h3>
+            <ul>
+              <!-- Selectorii de rangul 4 -->
+              <li>
+                <h4>Selectorii de rangul 4</h4>
+              </li>
+
+              <!-- Selectorii de rangul 3 -->
+              <li>
+                <h4>Selectorii de rangul 3</h4>
+              </li>
+
+              <!-- Selectorii de rangul 2 -->
+              <li>
+                <h4>Selectorii de rangul 2</h4>
+              </li>
+
+              <!-- Selectorii de rangul 1 -->
+              <li>
+                <h4>Selectorii de rangul 1</h4>
+              </li>
+
+              <!-- Aceeași specificitate -->
+              <li>
+                <h4>Aceeași specificitate</h4>
+              </li>
+
+              <!-- Evitarea specificității -->
+              <li>
+                <h4>Evitarea specificității</h4>
+              </li>
+
+              <!-- Cuvântul cheie !important -->
+              <li>
+                <h4>Cuvântul cheie (!important)</h4>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Moștenirea proprietății -->
+          <li>
+            <h3>Moștenirea proprietății</h3>
+            <ul>
+              <!-- Excepții -->
+              <li>
+                <h4>Excepții</h4>
+              </li>
+
+              <!-- Culoarea textului paginii -->
+              <li>
+                <h4>Culoarea textului paginii</h4>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Variabile CSS -->
+      <section>
+        <h2 id="variabile">Variabile CSS</h2>
+        <ul>
+          <!-- Declararea unei variabile -->
+          <li>
+            <h3>Declararea unei variabile</h3>
+          </li>
+
+          <!-- Utilizarea unei variabile -->
+          <li>
+            <h3>Utilizarea unei variabile</h3>
+          </li>
+
+          <!-- Valorile de rezervă -->
+          <li>
+            <h3>Valorile de rezervă</h3>
+          </li>
+
+          <!-- Domeniul de aplicare -->
+          <li>
+            <h3>Domeniul de aplicare</h3>
+          </li>
+
+          <!-- Redefinirea valorilor -->
+          <li>
+            <h3>Redefinirea valorilor</h3>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
