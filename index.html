@@ -17,10 +17,10 @@
         <ul>
           <li><a href="#introducere">Introducere în CSS</a></li>
           <li><a href="#selectori">Selectori</a></li>
-          <li><a href="#pseudo"></a>Pseudo-clase de stare</li>
-          <li><a href="#lucrul"></a>Lucrul cu culoarea</li>
-          <li><a href="#cascada"></a>Cascada stilurilor</li>
-          <li><a href="#variabile"></a>>Variabile CSS</li>
+          <li><a href="#pseudo">Pseudo-clase de stare</a></li>
+          <li><a href="#lucrul">Lucrul cu culoarea</a></li>
+          <li><a href="#cascada">Cascada stilurilor</a></li>
+          <li><a href="#variabile">Variabile CSS</a></li>
         </ul>
       </nav>
     </header>
@@ -438,6 +438,75 @@
               Vă permite să aplicați stiluri la elementele cu un anumit atribut
               sau valoare.
             </p>
+
+            <!-- Exemple -->
+            <section>
+              <h4>Exemple</h4>
+              <ul>
+                <!-- Exemplu 1 -->
+                <li>
+                  <h5>Exemplu 1</h5>
+                  <p>element[atribut]</p>
+                  <p>
+                    Aplică stiluri la toate elementele care au un atribut
+                    specificat.
+                  </p>
+                  <a
+                    href="https://htmlreference.io"
+                    title="Referință pentru tag-uri"
+                  >
+                    htmlreference.io
+                  </a>
+
+                  <a
+                    href="https://cssreference.io"
+                    title="Referință pentru stiluri"
+                  >
+                    cssreference.io
+                  </a>
+
+                  <a href="https://www.youtube.com">YouTube </a>
+
+                  <!-- HTML pentru browser -->
+                  <p>
+                    &lt;a href="https://htmlreference.io" title="Referință
+                    pentru tag-uri" &gt; htmlreference.io &lt;/a&gt; <br />
+                    <br />
+                    &lt;a href="https://cssreference.io" title="Referință pentru
+                    stiluri" &gt; cssreference.io &lt;/a&gt; <br />
+                    <br />
+                    &lt;a href="https://www.youtube.com"&gt;YouTube &lt;/a&gt;
+                  </p>
+
+                  <!-- CSS pentru browser -->
+                  <p>Selectează toate link-urile cu atributul title.</p>
+                  <p>a[title] { color: teal; }</p>
+                </li>
+
+                <!-- Exemplu 2 -->
+                <li>
+                  <h5>Exemplu 2</h5>
+                  <p>element[atribut="valoare"]</p>
+                  <p>
+                    Aplică stiluri la toate elementele care au un atribut cu
+                    valoarea specificată.
+                  </p>
+                  <p>
+                    Selectează toate link-urile cu atributul href și cu valoarea
+                    corespunzătoare.
+                  </p>
+
+                  <!-- HTML pentru browser -->
+                  <p>
+                    /* Formatarea neobișnuită a acoladelor este ceva normal */
+                    <br />
+                    a[href="https://htmlreference.io"] { color: teal; } <br />
+                    a[href="https://cssreference.io"] { color: orange; } <br />
+                    a[href="https://www.youtube.com"] { color: tomato; }
+                  </p>
+                </li>
+              </ul>
+            </section>
           </li>
         </ul>
       </section>
@@ -445,35 +514,368 @@
       <!-- Pseudo-clase de stare -->
       <section>
         <h2 id="pseudo">Pseudo-clase de stare</h2>
+        <p>
+          Selectorii de stare sunt folosiți pentru a aplica stiluri elementelor
+          interactive atunci când are loc un anumit eveniment, cum ar fi
+          trecerea cursorului peste un link sau când elementul devine focalizat
+          de la tastatură.
+        </p>
+        <p>
+          Pseudo-clasa definește o stare specifică a elementului și este atașată
+          unui selector de tag, clasă etc.
+          <b>Nu există spațiu între selector și pseudo-clasă </b> pentru a arăta
+          că acestea sunt legate între ele.
+          <strong>
+            Dacă adăugați un spațiu, atunci pseudo-clasa se va aplica tuturor
+            elementelor din document.
+          </strong>
+        </p>
+        <p>
+          selector:pseudo-clasă { <br />
+          /* Proprietăți */ <br />
+          }
+        </p>
         <ul>
           <!-- Pseudo-clasa :hover -->
           <li>
             <h3>Pseudo-clasa :hover</h3>
+            <p>
+              Aceasta este activată atunci când cursorul mouse-ului se află în
+              cadrul unui element, cum ar fi când treceți mouse-ul peste un link
+              sau orice alt element.
+            </p>
+
+            <!-- Exemplu -->
+            <section>
+              <h4>Exemplu</h4>
+              <ul>
+                <!-- Exemplu 1 -->
+                <li>
+                  <h5>Exemplu 1</h5>
+                  <p>
+                    Puteți găsi referințe grozave,
+                    <a class="link" href="https://htmlreference.io"
+                      >accesând link-ul</a
+                    >.
+                  </p>
+
+                  <!-- HTML pentru browser -->
+                  <p>
+                    Puteți găsi referințe grozave, &lt;a class="link"
+                    href="https://htmlreference.io" &gt;accesând link-ul &lt;/a
+                    &gt;.
+                  </p>
+                  <p>
+                    Să adăugăm un stil de bază și un stil de focalizare unui
+                    link.
+                  </p>
+
+                  <!-- CSS pentru browser -->
+                  <p>
+                    .link { <br />
+                    color: teal; <br />
+                    } <br />
+
+                    .link:hover { <br />
+                    color: tomato; <br />
+                    }
+                  </p>
+                </li>
+
+                <!-- Exemplu 2 -->
+                <li>
+                  <h5>Exemplu 2</h5>
+                  <p>
+                    Pseudo-clasele pot fi aplicate oricăror selectori, inclusiv
+                    celor de context.
+                  </p>
+                  <ul class="social-links">
+                    <li>
+                      <a class="link" href="https://twitter.com">Twitter</a>
+                    </li>
+                    <li>
+                      <a class="link" href="https://www.instagram.com"
+                        >Instagram</a
+                      >
+                    </li>
+                    <li>
+                      <a class="link" href="https://www.facebook.com"
+                        >Facebook</a
+                      >
+                    </li>
+                  </ul>
+
+                  <!-- HTML pentru browser -->
+                  <p>
+                    &lt;ul class="social-links"&gt; <br />
+                    &lt;li&gt; &lt;a class="link"
+                    href="https://twitter.com"&gt;Twitter&lt;/a&gt; &lt;/li&gt;
+                    <br />
+                    &lt;li&gt; &lt;a class="link"
+                    href="https://www.instagram.com" &gt;Instagram&lt;/a &gt;
+                    &lt;/li&gt; <br />
+                    &lt;li&gt; &lt;a class="link"
+                    href="https://www.facebook.com" &gt;Facebook&lt;/a &gt;
+                    &lt;/li&gt; <br />
+                    &lt;/ul&gt;
+                  </p>
+                  <p>
+                    Să adăugăm un stil de bază și un stil de focalizare unui
+                    link.
+                  </p>
+
+                  <!-- CSS pentru browser -->
+                  <p>
+                    .social-links .link { <br />
+                    color: teal; <br />
+                    } <br />
+                    <br />
+                    .social-links .link:hover { <br />
+                    color: tomato; <br />
+                    }
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <p>Util !!!</p>
+            <p>
+              Un astfel de selector arată "Când treceți cu mouse-ul peste
+              elementele cu clasa link care se află în interiorul unui element
+              cu clasa social-links". Adică, selectorii sunt citiți de la
+              dreapta la stânga.
+            </p>
           </li>
 
           <!-- Pseudo-clasa :focus -->
           <li>
             <h3>Pseudo-clasa :focus</h3>
+            <p>
+              Este activată atunci când un element interactiv (link, buton, câmp
+              de formular) este focalizat în momentul în care navighează pe
+              pagină folosind tastatura (tasta Tab).
+            </p>
+
+            <!-- Exemplu -->
+            <section>
+              <h4>Exemplu</h4>
+              <ul class="social-media-links">
+                <li><a class="link" href="https://twitter.com">Twitter</a></li>
+                <li>
+                  <a class="link" href="https://www.instagram.com">Instagram</a>
+                </li>
+                <li>
+                  <a class="link" href="https://www.facebook.com">Facebook</a>
+                </li>
+              </ul>
+
+              <!-- HTML pentru browser -->
+              <h5>HTML</h5>
+              <p>
+                (a href="")Citiți blogul nostru!(/a) <br />
+
+                (ul class="social-links") <br />
+                (li) <br />
+                (a href="")Twitter <br />
+                (/li) <br />
+                (li) <br />
+                (a href="")Instagram <br />
+                (/li) <br />
+                (li) <br />
+                (a href="")Facebook <br />
+                (/li) <br />
+                (/ul)
+              </p>
+
+              <p>
+                Să adăugăm un stil de bază și un stil de focalizare link-ului
+                din interiorul unei liste.
+              </p>
+
+              <!-- CSS pentru browser -->
+              <h5>CSS</h5>
+              <p>
+                .ssocial-media-links .link { <br />
+                color: tomato; <br />
+                } <br />
+                <br />
+                .social-media-links .link:focus { <br />
+                color: green; <br />
+                }
+              </p>
+              <p>
+                Pentru a ține cont de hover și de focalizare, trebuie să
+                stilizați ambele stări simultan. Acest lucru se face printr-o
+                simplă enumerare a selectorilor.
+              </p>
+
+              <!-- CSS pentru browser -->
+              <h5>CSS</h5>
+              <p>
+                .social-media-links .link { <br />
+                color: tomato; <br />
+                } <br />
+                <br />
+                /* Doi sau mai mulți selectori sunt separați prin virgulă */
+                <br />
+                .social-media-links .link:hover, <br />
+                .social-media-links .link:focus { <br />
+                color: green; <br />
+                }
+              </p>
+            </section>
           </li>
 
           <!-- Pseudo-clasa :active -->
           <li>
             <h3>Pseudo-clasa :active</h3>
+            <p>
+              Aceasta apare atunci când elementul este activat. De exemplu, un
+              link devine activ dacă treceți cursorul peste el și dați click.
+              Deși aproape orice element poate deveni activ, pseudo-clasa
+              :active este folosită în primul rând pentru link-uri și butoane.
+            </p>
+
+            <!-- CSS pentru browser -->
+            <h5>CSS</h5>
+            <p>
+              .social-links .link { <br />
+              color: teal; <br />
+              } <br />
+              <br />
+              .social-links .link:hover, <br />
+              .social-links .link:focus { <br />
+              color: orange; <br />
+              } <br />
+              <br />
+              .social-links .link:active { <br />
+              color: red; <br />
+              }
+            </p>
           </li>
 
           <!-- Pseudo-clasa :visited -->
           <li>
             <h3>Pseudo-clasa :visited</h3>
+            <p>
+              Această pseudo-clasă este activată pe link-urile care au fost deja
+              vizitate. În mod implicit, link-urile sunt afișate în albastru și
+              devin violete atunci când sunt vizitate.
+            </p>
+
+            <!-- CSS pentru browser -->
+            <h5>CSS</h5>
+            <p>
+              .social-links .link { <br />
+              color: teal; <br />
+              } <br />
+              <br />
+              .social-links .link:hover, <br />
+              .social-links .link:focus { <br />
+              color: orange; <br />
+              } <br />
+              <br />
+              .social-links .link:active { <br />
+              color: red; <br />
+              } <br />
+              <br />
+              .social-links .link:visited { <br />
+              color: green; <br />
+              }
+            </p>
           </li>
 
           <!-- Hover și tabele -->
           <li>
             <h3>Hover și tabele</h3>
+            <p>
+              Pseudo-clasa :hover nu trebuie aplicată link-urilor, dar poate fi
+              adăugată și altor elemente ale documentului. De exemplu, la
+              rândurile sau celulele unui tabel, astfel încât acestea să schimbe
+              culoarea de fundal în momentul în care rotiți cursorul mouse-ului.
+            </p>
+
+            <!-- Exemplu -->
+            <section>
+              <p>Exemplu</p>
+              <ul>
+                <!-- HTML pentru browser -->
+                <li>
+                  <h5>HTML</h5>
+                  <ul>
+                    <li>&lt;table class="schedule">&gt;</li>
+                    <li>&lt;tbody class="schedule-body"&gt;</li>
+                  </ul>
+                </li>
+
+                <!-- Tabel HTML -->
+                <li>
+                  <table class="schedule">
+                    <thead>
+                      <tr>
+                        <th>Număr</th>
+                        <th>Traseu</th>
+                        <th>Timp de călătorie</th>
+                      </tr>
+                    </thead>
+
+                    <tbody class="schedule-body">
+                      <tr>
+                        <td>433</td>
+                        <td>Cluj-Napoca - Sibiu</td>
+                        <td>5 ore</td>
+                      </tr>
+                      <tr>
+                        <td>701</td>
+                        <td>Vaslui - Oradea</td>
+                        <td>7 ore</td>
+                      </tr>
+                      <tr>
+                        <td>258</td>
+                        <td>Arad - Sibiu</td>
+                        <td>4 ore</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+
+                <!-- CSS pentru browser -->
+                <li>
+                  <h5>CSS</h5>
+                  .schedule-body > tr:hover { <br />
+                  background-color: tomato;<br />
+                  color: white;<br />
+                  } <br />
+                  <br />
+                  /* Marcaj tabel */ <br />
+                  .schedule { <br />
+                  border-collapse: collapse; <br />
+                  } <br />
+                  <br />
+                  .schedule th,<br />
+                  .schedule td { <br />
+                  padding: 8px;<br />
+                  border: 1px solid #212121;<br />
+                  }
+                </li>
+              </ul>
+            </section>
           </li>
 
           <!-- Proprietatea cursor -->
           <li>
             <h3>Proprietatea cursor</h3>
+            <p>
+              Aceasta setează tipul cursorului mouse-ului atunci când acesta se
+              află în cadrul elementului. Aspectul cursorului depinde de
+              sistemul de operare și de setările acestuia. Schimbarea tipului de
+              cursor este o idee rea, încât va deruta utilizatorul doar când va
+              vedea altceva în loc de o mână obișnuită sau o lupă. În cele mai
+              multe cazuri, cel mai bine este să lăsați lucrurile așa cum sunt.
+            </p>
+            <p>
+              Treceți cu mouse-ul peste text (valorile proprietății) și cursorul
+              își va schimba aspectul, exact ca în tabelul de mai jos.
+            </p>
           </li>
         </ul>
       </section>
@@ -485,31 +887,201 @@
           <!-- Culoarea textului -->
           <li>
             <h3>Culoarea textului</h3>
+            <p>
+              Proprietatea color poate fi folosită pentru a schimba culoarea
+              textului unui element. Browserele moderne acceptă câteva moduri de
+              bază de a descrie culorile: cuvinte cheie, RGB și HEX.
+            </p>
+            <p class="text">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Obcaecati commodi, veritatis nihil alias iste odit similique sit
+              eius optio veniam, impedit cumque fuga facere labore quo id
+              necessitatibus quaerat rerum.
+            </p>
+
+            <!-- HTML pentru browser -->
+            <h4>HTML</h4>
+            <p>
+              &lt;p class="text"&gt; <br />
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Obcaecati commodi, veritatis nihil alias iste odit similique sit
+              eius optio veniam, impedit cumque fuga facere labore quo id
+              necessitatibus quaerat rerum.<br />
+              &lt;/p&gt;
+            </p>
+
+            <!-- CSS pentru browser -->
+            <h4>CSS</h4>
+            <p>
+              .text { <br />
+              color: tomato;<br />
+              }
+            </p>
+
+            <p>Util !!!</p>
+            <p>
+              Pe site-ul
+              <a
+                href="https://htmlcolorcodes.com/color-picker/"
+                target="_blank"
+                rel="noopener"
+                >htmlcolorcodes.com</a
+              >
+              puteți vedea valorile culorilor în diferite formate.
+            </p>
           </li>
 
           <!-- Culoarea de fundal -->
           <li>
             <h3>Culoarea de fundal</h3>
+            <p>
+              Proprietatea background-color permite să modificați culoarea de
+              fundal a unui element.
+            </p>
+            <p class="text-new">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Obcaecati commodi, veritatis nihil alias iste odit similique sit
+              eius optio veniam, impedit cumque fuga facere labore quo id
+              necessitatibus quaerat rerum.
+            </p>
+            <h4>CSS</h4>
+            <p>
+              .text-new { <br />
+              background-color: tomato;<br />
+              color: white;<br />
+              }
+            </p>
           </li>
 
           <!-- Nume de culori -->
           <li>
             <h3>Nume de culori</h3>
+            <p>
+              Pentru a descrie culorile în stiluri, puteți utiliza următoarele
+              denumiri de culori. Acestea nu mai sunt folosite în dezvoltarea
+              web modernă, dar sunt utile dacă trebuie să setați rapid o
+              culoare.
+            </p>
           </li>
 
           <!-- RGB -->
           <li>
             <h3>RGB</h3>
+            <p>
+              Există trei culori principale: roșu, verde și albastru.
+              Amestecându-le în diferite proporții, puteți obține orice altă
+              culoare.
+            </p>
+            <p>
+              În acest format se folosește funcția rgb() pentru a seta valoarea
+              care specifică proporția fiecăreia dintre cele trei culori
+              primare, după care acestea sunt amestecate și se obține culoarea
+              dorită.
+            </p>
+            <p>
+              Intervalul de valori poate fi specificat sub formă de numere de la
+              0 (absența completă a culorii) la 255 (proporția maximă). Aceasta
+              este o modalitate de bază de a seta o culoare RGB.
+            </p>
+            <p>
+              /* Culoarea roșie pură: 255 roșu, 0 verde, 0 albastru */ <br />
+              p { <br />
+              color: rgb(255, 0, 0);<br />
+              }
+            </p>
+            <p>Sau procentual de la 0% până la 100%.</p>
+            <p>
+              /* Culoarea roșie pură: 100% roșu, 0% verde, 0% albastru */ <br />
+              p { <br />
+              color: rgb(100%, 0%, 0%);<br />
+              }
+            </p>
+            <p>Atentie !!!</p>
+            <p>
+              Nu este nevoie să memorați combinațiile valorilor RGB, toate
+              culorile sunt în layoutul creat de designer.
+            </p>
           </li>
 
           <!-- HEX -->
           <li>
             <h3>HEX</h3>
+            <p>
+              Această descriere a culorii se bazează pe notarea numărului în
+              hexazecimal. Ponderea fiecăreia dintre cele trei culori primare
+              este descrisă de două numere.
+            </p>
+            <h4>RRGGBB</h4>
+            <p>
+              Când vine vorba de utilizarea cifrelor în acest sistem de numere,
+              se utilizează un set de la 0 la 9 și litere latine de la A la F cu
+              litere mici sau mari.
+            </p>
+            <ul>
+              <li>0 - cea mai mică fracțiune de culoare</li>
+              <li>f - cea mai mare fracțiune de culoare</li>
+            </ul>
+            <p>
+              /* Culoarea roșie pură: ff (100%) roșu, 00 (0%) verde, 00 (0%)
+              albastru */ <br />
+              p { <br />
+              color: #ff0000;<br />
+              } <br />
+              <br />
+              /* Culoarea verde pură: 00 (0%) roșu, ff (100%) verde, 00 (0%)
+              albastru */ <br />
+              p { <br />
+              color: #00ff00;<br />
+              } <br />
+              <br />
+              /* Culoarea albastră pură: 00 (0%) roșu, 00 (0%) verde, ff (100%)
+              albastru */ <br />
+              p { <br />
+              color: #0000ff;<br />
+              }
+            </p>
+            <p>Atentie !!!</p>
+            <p>
+              Nu este nevoie să memorați combinațiile valorilor RGB, toate
+              culorile sunt în layoutul creat de designer.
+            </p>
           </li>
 
           <!-- Transparența culorii -->
           <li>
             <h3>Transparența culorii</h3>
+            <p>
+              Principala modalitate de a adăuga transparență unei culori este cu
+              funcția rgba(). Spre deosebire de rgb(), este adăugată și
+              transparența (canalul alfa).
+            </p>
+            <p>rgba(roșu, verde, albastru, alfa)</p>
+            <p>
+              În majoritatea cazurilor, transparența este dată de un număr de la
+              0 (transparent) la 1 (nu este transparent).
+            </p>
+            <p>
+              /* Culoarea roșie pură cu transparență de 30% */ <br />
+              p { <br />
+              background-color: rgba(255, 0, 0, 0.3);<br />
+              }
+            </p>
+            <p>
+              Dar puteți folosi și procente de la 0% (transaprent) până la 100%
+              (nu este transparent).
+            </p>
+            <p>
+              /* Culoarea roșie pură cu transparență de 30% */ <br />
+              p { <br />
+              background-color: rgba(100%, 0%, 0%, 30%);<br />
+              }
+            </p>
+            <p>Interesant !!!</p>
+            <p>
+              Transparența culorii poate fi setată și în formatul HEX, dar din
+              cauza complexității unei astfel de notații și reținerii valorilor,
+              mereu se folosește funcția rgba().
+            </p>
           </li>
         </ul>
       </section>
@@ -517,44 +1089,457 @@
       <!-- Cascada stilurilor -->
       <section>
         <h2 id="cascada">Cascada stilurilor</h2>
+        <p>
+          Cascada – este un mecanism care gestionează valorile finale ale
+          proprietăților unui element atunci când îi sunt aplicate mai multe
+          reguli CSS.
+        </p>
+        <ul>
+          <li>
+            Dacă unui element i se aplică mai multe reguli, proprietățile
+            acestora vor fi combinate.
+          </li>
+          <li>
+            Dacă regulile au aceleași proprietăți cu valori diferite, atunci
+            acestea vor fi în dezacord.
+          </li>
+          <p>
+            /* Ce culoare va fi textul paragrafelor? */ <br />
+            p { <br />
+            color: blue;<br />
+            background-color: yellow;<br />
+            } <br />
+            <br />
+            p { <br />
+            color: black;<br />
+            }
+          </p>
+          <p>Observatie !!!</p>
+          <p>Ia culoarea ultimei comenzi date, daca se contrazic</p>
+          <p>
+            Pentru a colecta stilurile finale ale unui element și pentru a
+            rezolva dezacordurile în valorile proprietăților, browserul
+            folosește două mecanisme: <b>specificitatea</b> și
+            <b>moștenirea</b>.
+          </p>
+        </ul>
         <ul>
           <!-- Specificitatea selectorului -->
           <li>
             <h3>Specificitatea selectorului</h3>
+            <p>
+              Pentru fiecare regulă CSS, browserul calculează specificitatea
+              (greutatea) selectorului. Dacă un element necesită să i se aplice
+              o proprietate din diferite reguli, dar există proprietăți în
+              dezacord (aceleași), se folosește valoarea proprietății din regula
+              cu cea mai mare specificitate a selectorului.
+            </p>
+            <p>
+              Valoarea specificității e formată din patru ranguri, a căror
+              importanță crește de la dreapta la stânga.
+            </p>
+            <p>
+              inline&lt;---ID&lt;---classes,attributes,pseudo-classes&lt;---elements,pseudo-elements
+            </p>
             <ul>
               <!-- Selectorii de rangul 4 -->
               <li>
                 <h4>Selectorii de rangul 4</h4>
+                <p>
+                  Fiecare selector de element și pseudo-element adaugă o unitate
+                  la rangul 4.
+                </p>
+                <p>
+                  Culoarea textului paragrafului va fi portocaliu, deoarece
+                  specificitatea celei de-a doua reguli este mai mare.
+                </p>
+                <p>
+                  /* Specificitatea - 0 0 0 1 */ <br />
+                  p { <br />
+                  color: green;<br />
+                  } <br />
+                  <br />
+                  /* ✅ Specificitatea - 0 0 0 2 */ <br />
+                  article > p { <br />
+                  color: orange;<br />
+                  }
+                </p>
               </li>
 
               <!-- Selectorii de rangul 3 -->
               <li>
                 <h4>Selectorii de rangul 3</h4>
+                <p>
+                  Fiecare selector de clasă, atribut și pseudo-clasă adaugă o
+                  unitate la rangul 3.
+                </p>
+
+                <!-- Exemplu -->
+                <section>
+                  <h5>Exemplu</h5>
+                  <article class="post">
+                    <h1 class="post-title">Lorem ipsum dolor sit amet</h1>
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Obcaecati commodi, veritatis nihil alias iste odit
+                      similique sit eius optio veniam, impedit cumque fuga
+                      facere labore quo id necessitatibus quaerat rerum.
+                    </p>
+                    <a href="" class="post-link">Citeşte mai mult...</a>
+                  </article>
+                  <!-- HTML pentru browser -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;article class="post"&gt;<br />
+                    &lt;h1 class="post-title"&gt;Lorem ipsum dolor sit
+                    amet&lt;/h1&gt;<br />
+                    &lt;p&gt;<br />
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Obcaecati commodi,<br />
+                    veritatis nihil alias iste odit similique sit eius optio
+                    veniam, impedit <br />
+                    cumque fuga facere labore quo id necessitatibus quaerat
+                    rerum. <br />
+                    &lt;/p&gt;<br />
+                    &lt;a href="" class="post-link"&gt;Citeşte mai
+                    mult...&lt;/a&gt;<br />
+                    &lt;/article&gt;
+                  </p>
+
+                  <!-- CSS pentru browser -->
+                  <h6>CSS</h6>
+                  <ul>
+                    <li>
+                      <p>
+                        Culoarea textului titlului va fi portocaliu, deoarece
+                        specificitate celei de-a treia reguli este mai mare.
+                      </p>
+                      <p>
+                        /* Specificitatea - 0 0 1 0 */ <br />
+                        .post-title { <br />
+                        color: green;<br />
+                        } <br />
+                        <br />
+                        /* Specificitatea - 0 0 1 1 */ <br />
+                        .post > h1 { <br />
+                        color: red;<br />
+                        } <br />
+                        <br />
+                        /* ✅ Specificitatea - 0 0 2 0 */ <br />
+                        .post > .post-title { <br />
+                        color: orange;<br />
+                        }
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Culoarea textului titlului va fi maro, deoarece
+                        specificitatea celei de-a cincea reguli este mai mare.
+                      </p>
+                      <p>
+                        /* Specificitatea - 0 0 0 1 */ <br />
+                        a { <br />
+                        color: green;<br />
+                        } <br />
+                        <br />
+                        /* Specificitatea - 0 0 1 0 */ <br />
+                        .post-link { <br />
+                        color: orange;<br />
+                        } <br />
+                        <br />
+                        /* Specificitatea - 0 0 1 1 */ <br />
+                        a.post-link { <br />
+                        color: blue;<br />
+                        } <br />
+                        <br />
+                        /* Specificitatea - 0 0 2 0 */ <br />
+                        .post > .post-link { <br />
+                        color: red;<br />
+                        } <br />
+                        <br />
+                        /* ✅ Specificitatea - 0 0 2 1 */ <br />
+                        .post > a.post-link { <br />
+                        color: brown;<br />
+                        }
+                      </p>
+                    </li>
+                  </ul>
+                </section>
               </li>
 
               <!-- Selectorii de rangul 2 -->
               <li>
                 <h4>Selectorii de rangul 2</h4>
+                <p>Fiecare selector de ID adaugă o unitate la rangul 2.</p>
+                <p>&lt;h1 class="post-title" id="title"&gt;</p>
+                <p>
+                  Culoarea textului titlului va fi portocaliu, deoarece
+                  specificitate celei de-a doua reguli este mai mare.
+                </p>
+                <p>
+                  /* Specificitatea - 0 0 1 0 */ <br />
+                  .post-title { <br />
+                  color: green;<br />
+                  } <br />
+                  <br />
+                  /* ✅ Specificitatea - 0 1 0 0 */ <br />
+                  #title { <br />
+                  color: orange;<br />
+                  }
+                </p>
               </li>
 
               <!-- Selectorii de rangul 1 -->
               <li>
                 <h4>Selectorii de rangul 1</h4>
+                <p>
+                  Stilurile de tip inline adaugă o unitate la rangul 1, au
+                  specificitatea cea mai mare și nu pot fi redefinite prin CSS.
+                </p>
+
+                <!-- Specificitatea acestui stil - 1 0 0 0 -->
+                <p style="color: red">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Obcaecati commodi, veritatis nihil alias iste odit similique
+                  sit eius optio veniam, impedit cumque fuga facere labore quo
+                  id necessitatibus quaerat rerum.
+                </p>
+
+                <!-- HTML si CSS pentru browser -->
+                <h5>HTML si CSS</h5>
+                <p>
+                  &lt;p style="color: green"&gt;<br />
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Obcaecati commodi,<br />
+                  veritatis nihil alias iste odit similique sit eius optio
+                  veniam, impedit <br />
+                  cumque fuga facere labore quo id necessitatibus quaerat rerum.
+                  <br />
+                  &lt;/p&gt;
+                </p>
               </li>
 
               <!-- Aceeași specificitate -->
               <li>
                 <h4>Aceeași specificitate</h4>
+                <p>
+                  Dacă specificitatea este aceeași, plasată mai jos din cod e
+                  aplicată cu întâietate.
+                </p>
+                <p>
+                  /* Trei selectori de elemente cu aceeași specificitate */
+                  <br />
+                  a { <br />
+                  color: teal;<br />
+                  } <br />
+                  <br />
+                  a { <br />
+                  color: brown;<br />
+                  } <br />
+                  <br />
+                  /* Întrucât această regulă se află mai jos, culoarea
+                  portocalie a textului va fi aplicată tuturor link-urilor*/
+                  <br />
+                  a { <br />
+                  color: orange;<br />
+                  }
+                </p>
               </li>
 
               <!-- Evitarea specificității -->
               <li>
                 <h4>Evitarea specificității</h4>
+                <p>
+                  Dacă selectorul are forma A > B > C + X Y, ar trebui să luăm
+                  în considerare următoarele: Cu cât selectorul este mai simplu,
+                  cu atât vor apărea mai puține probleme de specificitate.
+                  Obișnuiți-vă să folosiți selectori de clasă. Atributul class
+                  nu numai că ajută la evitarea problemelor de specificitate,
+                  dar și îmbunătățește lizibilitatea marcajului HTML.
+                </p>
+
+                <!-- Exemplu -->
+                <section>
+                  <h5>Exemplu</h5>
+                  <ul>
+                    <!-- Prima abordare -->
+                    <li>
+                      <p>
+                        Prima abordare este de a atribui o clasă unui bloc
+                        părinte comun și de a folosi selectorii de copii și
+                        descendenți.
+                      </p>
+                      <article class="post">
+                        <h1>Lorem ipsum dolor sit amet</h1>
+                        <p>
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Obcaecati commodi, veritatis nihil alias iste
+                          odit similique sit eius optio veniam, impedit cumque
+                          fuga facere labore quo id necessitatibus quaerat
+                          rerum.
+                        </p>
+                        <a href="">Citeşte mai mult...</a>
+                      </article>
+                      <p>
+                        Acest CSS funcționează corect atunci când marcajul este
+                        simplu. Dar, pe măsură ce complexitatea marcajului
+                        blocurilor crește, stilizarea adecvată de către
+                        selectorii de tag-uri devine imposibilă. De exemplu,
+                        dacă în postare există 5 link-uri în loc de unul,
+                        selectarea punctuală a unui link nu va fi posibilă sau
+                        selectorul va fi prea complicat.
+                      </p>
+
+                      <!-- CSS pentru browser -->
+                      <h6>CSS</h6>
+                      <p>
+                        .post { /* Stiluri articol */ <br />
+                        } <br />
+                        <br />
+                        .pos <br />t > h1 { /* Stiluri titlu */ <br />
+                        } <br />
+                        <br />
+                        .post > p { <br />
+                        /* Stiluri text */ <br />
+                        } <br />
+                        <br />
+                        .post > a { <br />
+                        /* Stiluri link */ <br />
+                        } <br />
+                        <br />
+                        .post > a:hover { <br />
+                        /* Stilurile link-ului la hover */ <br />
+                        }
+                      </p>
+                    </li>
+
+                    <!-- A doua abordare -->
+                    <li>
+                      <p>
+                        A doua abordare este să adăugați clase descriptive
+                        blocului părinte și tag-urilor din interioul acestuia.
+                      </p>
+                      <ul>
+                        <li>article class="post"</li>
+                        <li>h1 class="title"</li>
+                        <li>p class="text"</li>
+                        <li>a class="link"</li>
+                      </ul>
+                      <p>
+                        Acest CSS este scalat corect și bine suportat, fiind
+                        punctul de plecare pentru a scrie un CSS bun. Cu toate
+                        acestea, pe măsură ce complexitatea marcajului crește,
+                        pot apărea mici probleme de specificitate.
+                      </p>
+
+                      <!-- CSS pentru browser -->
+                      <h6>CSS</h6>
+                      <p>
+                        .post { <br />
+                        /* Stiluri articol */ <br />
+                        } <br />
+                        <br />
+                        .post > .title { <br />
+                        /* Stiluri titlu */ <br />
+                        } <br />
+                        <br />
+                        .post > .text { <br />
+                        /* Stiluri text */ <br />
+                        } <br />
+                        <br />
+                        .post > .link { <br />
+                        /* Stiluri link */ <br />
+                        } <br />
+                        <br />
+                        .post > .link:hover { <br />
+                        /* Stilurile link-ului la hover */ <br />
+                        }
+                      </p>
+                    </li>
+
+                    <!-- A treia abordare -->
+                    <li>
+                      <p>
+                        O a treia abordare este de a atribui clase foarte
+                        specifice blocului părinte și fiecărui tag din cadrul
+                        acestuia după principiul nume_părinte-nume_copil.
+                      </p>
+                      <ul>
+                        <li>article class="post"</li>
+                        <li>h1 class="post-title"</li>
+                        <li>p class="post-text"</li>
+                        <li>a href="" class="post-link"</li>
+                      </ul>
+                      <p>
+                        Această abordare folosește selectori de clasă simpli,
+                        fără a fi nevoie să ne gândim la specificitate. Un
+                        astfel de CSS se scalează bine și este suportat. Pentru
+                        scrierea stilurilor, dezvoltarea modernă folosește
+                        variații ale acestei abordări.
+                      </p>
+
+                      <!-- CSS pentru browser -->
+                      <h6>CSS</h6>
+                      <p>
+                        .post { <br />
+                        /* Stiluri articol */ <br />
+                        } <br />
+                        <br />
+                        .post-title { <br />
+                        /* Stiluri titlu */ <br />
+                        } <br />
+                        <br />
+                        .post-text { <br />
+                        /* Stiluri text */ <br />
+                        } <br />
+                        <br />
+                        .post-link { <br />
+                        /* Stiluri link */ <br />
+                        } <br />
+                        <br />
+                        .post-link:hover { <br />
+                        /* Stilurile link-ului la hover */ <br />
+                        }
+                      </p>
+                    </li>
+                  </ul>
+                  <p>Util !!!</p>
+                  <p>
+                    Nu vă limitați doar la o singură abordare. Toate cele trei
+                    metode de denumire a marcajului cu clase și stiluri de
+                    scriere pot fi folosite împreună, în funcție de situație.
+                  </p>
+                </section>
               </li>
 
               <!-- Cuvântul cheie !important -->
               <li>
                 <h4>Cuvântul cheie (!important)</h4>
+                <p>
+                  Specificitatea unei reguli poate fi mărită prin adăugarea
+                  cuvântului cheie !important după valoarea proprietății.
+                </p>
+                <p>
+                  Valoarea unei astfel de proprietăți are prioritate față de
+                  toate celelalte, iar culoarea textului paragrafului va fi
+                  portocaliu.
+                </p>
+                <p>
+                  p { <br />
+                  color: orange !important;<br />
+                  } <br />
+                  <br />
+                  p#text-id.text { <br />
+                  color: blue;<br />
+                  }
+                </p>
+                <p>Atentie...!!!</p>
+                <p>
+                  Nu se recomandă deloc să folosiți !important în dezvoltarea
+                  modernă. Singurul caz rezonabil este să redefiniți valoarea
+                  unei proprietăți, dacă nu există acces direct la un fișier cu
+                  stiluri, cum ar fi un stil dintr-o bibliotecă.
+                </p>
               </li>
             </ul>
           </li>
@@ -562,15 +1547,93 @@
           <!-- Moștenirea proprietății -->
           <li>
             <h3>Moștenirea proprietății</h3>
+            <p>
+              Moștenirea genetică poate fi adesea observată în viața reală. De
+              exemplu, părinții înalți au cel mai des copii înalți, cel mai des
+              este moștenită culoarea părului etc. În CSS există ceva similar.
+              Dacă setați culoarea textului părintelui în verde, atunci culoarea
+              textului tuturor descendenților săi va fi, de asemenea, verde, cu
+              excepția cazului în care o regulă va înlocui această valoare.
+            </p>
+            <p>
+              Moștenirea reprezintă un mecanism prin care valorile unor
+              proprietăți sunt transmise de la un strămoș la descendenții săi.
+              În special sunt moștenite proprietățile de formatare a textului,
+              cum ar fi culoarea. Acest lucru este convenabil deoarece nu
+              trebuie să setați stiluri repetitive pentru fiecare copil în mod
+              individual.
+            </p>
+            <h4>HTML</h4>
+            <p>article class="post"</p>
+            <h4>CSS</h4>
+            <p>Haideți să setăm întregul text al postării în culoarea verde.</p>
+            <p>
+              .post { <br />
+              color: green;<br />
+              }
+            </p>
+            <p>
+              În viață, nu toate atributele părinților sunt transmise copiilor.
+              Același lucru este și în cazul cu CSS, nu toate proprietățile
+              implicite sunt moștenite de descendenți. De fapt, dacă toate
+              proprietățile ar fi moștenite, efectul ar fi similar cu lipsa
+              moștenirii și ar trebui scris mult CSS pentru a reseta stilurile
+              moștenite de la părinte ca să redefiniți acest comportament.
+            </p>
+
             <ul>
               <!-- Excepții -->
               <li>
                 <h4>Excepții</h4>
+                <p>
+                  Nu toate elementele moștenesc valoarea proprietăților de la
+                  strămoșii lor. De exemplu, link-ul nu moștenește culoarea
+                  textului.
+                </p>
+                <p>
+                  Dacă doriți ca link-ul din postare să aibă aceeași culoare cu
+                  restul textului, puteți utiliza valoarea specială de moștenire
+                  inherit pentru proprietatea color, ca să evitați duplicarea
+                  culorii în două locuri.
+                </p>
+
+                <h5>HTML</h5>
+                <p>article class="post"</p>
+                <p>a href="" class="post-link"</p>
+
+                <h5>CSS</h5>
+                <p>
+                  .post { <br />
+                  color: green;<br />
+                  } <br />
+                  <br />
+                  .post-link { <br />
+                  color: inherit;<br />
+                  }
+                </p>
+                <p>Util...!!!</p>
+                <p>
+                  Valoarea inherit îi comunică browserului să moștenească
+                  valoarea proprietății de la un strămoș. Pentru culoare este
+                  mai bine să folosiți valoarea <b>currentColor</b> (culoarea
+                  curentă).
+                </p>
               </li>
 
               <!-- Culoarea textului paginii -->
               <li>
                 <h4>Culoarea textului paginii</h4>
+                <p>
+                  Pentru a seta culoarea textului de bază (dominant) a
+                  întregului document, creăm o regulă pentru tag-ul (body) și
+                  adăugăm proprietatea color. Această culoare va fi moștenită de
+                  tot conținutul text, cu excepția link-urilor.
+                </p>
+                <p>
+                  body { <br />
+                  color: #2a2a2a;<br />
+                  }
+                </p>
               </li>
             </ul>
           </li>
@@ -580,30 +1643,243 @@
       <!-- Variabile CSS -->
       <section>
         <h2 id="variabile">Variabile CSS</h2>
+        <p>
+          Proprietățile personalizate (CSS Custom Properties), cunoscute și sub
+          numele de variabile CSS, reprezintă containere pentru valorile
+          definite într-un document CSS pentru o utilizare repetată. Variabilele
+          CSS facilitează utilizarea și modificarea valorilor repetate într-o
+          foaie de stil. Acestea sunt acceptate nativ de browser și nu necesită
+          instrumente suplimentare.
+        </p>
+        <p>Exemplu</p>
+        <section class="section">
+          <h1 class="section-title">Section title</h1>
+        </section>
+        <h4>HTML</h4>
+        <p>
+          &lt;section class="section"&gt;<br />
+          &lt;h1 class="section-title"&gt;Section title&lt;/h1&gt;<br />
+          &lt;/section&gt;
+        </p>
+        <h4>CSS</h4>
+        <p>
+          .section { /* Alte stiluri */ <br />
+          border: 2px solid #3f51b5;<br />
+          } <br />
+          <br />
+          .section-title { <br />
+          /* Alte stiluri*/ <br />
+          color: #3f51b5;<br />
+          } <br />
+          <br />
+          .section-title::before { <br />
+          /* Alte stiluri */ <br />
+          background-color: #3f51b5;<br />
+          }
+        </p>
+        <p>
+          În exemplul de mai sus, valoarea #3f51b5 apare de trei ori. Să
+          presupunem că aceasta este culoarea de bază a mărcii, care este
+          utilizată în mod constant pe diferite pagini ale site-ului. Dacă
+          culoarea mărcii se schimbă, va trebui să înlocuim această valoare
+          peste tot, astfel într-un proiect mare, aceasta poate fi în sute de
+          locuri, iar cea mai bună opțiune este să folosim căutarea și
+          înlocuirea.
+        </p>
         <ul>
           <!-- Declararea unei variabile -->
           <li>
             <h3>Declararea unei variabile</h3>
+            <p>
+              Variabilele CSS ne vin în ajutor. Numele variabilei ține cont de
+              majuscule și minuscule și poate conține litere, cifre, litere de
+              subliniere și liniuțe. Haideți să creăm o variabilă --brand-color
+              pentru a păstra culoarea mărcii (#3f51b5) și să o folosim în cod.
+            </p>
+            <h4>CSS</h4>
+            <p>
+              :root { <br />
+              --brand-color: #3f51b5;<br />
+              }
+            </p>
+            <p>
+              Variabilele globale disponibile în orice altă regulă sunt definite
+              în selectorul :root, un selector mai specific al elementului
+              (html). Declararea variabilei începe cu o liniuță dublă -- urmată
+              de numele acesteia în notație arbitrară. De exemplu, brand-color
+              sau brandColor sunt nume de variabile valide, atâta timp cât toate
+              variabilele din proiect au aceeași notație. Numele și valoarea
+              sunt separate prin două puncte, iar la sfârșitul declarării se
+              pune punct și virgulă.
+            </p>
+            <p>Interesant...!!!</p>
+            <p>
+              Declararea unei variabile înseamnă crearea unei noi proprietăți
+              CSS care este moștenită și, prin urmare, este disponibilă peste
+              tot, deoarece orice element este un descendent al elementului
+              (html).
+            </p>
           </li>
 
           <!-- Utilizarea unei variabile -->
           <li>
             <h3>Utilizarea unei variabile</h3>
+            <p>
+              Pentru a accesa valoarea unei variabile, se folosește funcția
+              încorporată var(), care primește un nume de variabilă ca prim
+              argument.
+            </p>
+            <h4>CSS</h4>
+            <p>
+              :root {<br />
+              --brand-color: #3f51b5;<br />
+              } <br />
+              <br />
+              .section { <br />
+              /* Alte stiluri */ <br />
+              border: 2px solid var(--brand-color);<br />
+              } <br />
+              <br />
+              .section-title { <br />
+              /* Alte stiluri */ <br />
+              color: var(--brand-color);<br />
+              } <br />
+              <br />
+              .section-title::before { <br />
+              /* Alte stiluri */ <br />
+              background-color: var(--brand-color);<br />
+              }
+            </p>
+            <p>
+              În cazul dat, nu a apărut mai mult cod, dar este mai flexibil și
+              mai ușor de citit. Dacă va trebui să schimbați culoarea mărcii, va
+              fi de ajuns să modificați doar valoarea variabilei --brand-color,
+              prin urmare, culoarea se va schimba oriunde este folosită.
+            </p>
+            <p>Util...!!!</p>
+            <p>
+              În cazul dat, nu a apărut mai mult cod, dar este mai flexibil și
+              mai ușor de citit. Dacă va trebui să schimbați culoarea mărcii, va
+              fi de ajuns să modificați doar valoarea variabilei --brand-color,
+              prin urmare, culoarea se va schimba oriunde este folosită.
+            </p>
           </li>
 
           <!-- Valorile de rezervă -->
           <li>
             <h3>Valorile de rezervă</h3>
+            <p>
+              Funcția var(variable_name, fallback) poate lua două valori. Al
+              doilea argument este alternativ – valoarea care va fi folosită
+              dacă variabila transmisă în primul argument este nedefinită.
+            </p>
+            <h4>CSS</h4>
+            <p>
+              .section { <br />
+              border: 2px solid var(--brand-color, orange);<br />
+              } <br />
+              <br />
+              .section-title { <br />
+              color: var(--brand-color, black);<br />
+              } <br />
+              <br />
+              .section-title::before { background-color: var(--brand-color,
+              tomato);<br />
+              }
+            </p>
+            <p>Util...!!!</p>
+            <p>
+              În cazul când se utilizează variabile CSS, capacitatea de a
+              transmite o valoare implicită este în primul rând o opțiune, nu o
+              cerință. Nu este nevoie să specificați peste tot o rezervă.
+            </p>
           </li>
 
           <!-- Domeniul de aplicare -->
           <li>
             <h3>Domeniul de aplicare</h3>
+            <p>
+              Variabila --brand-color este globală deoarece este definită în
+              :root, adică este disponibilă pe orice alt element. Dacă valoarea
+              va fi folosită doar într-o anumită parte a paginii, puteți crea
+              variabile cu un domeniu local. Acestea vor fi disponibile doar
+              pentru elementul și descendenții săi în care sunt declarate.
+            </p>
+            <p>Exemplu</p>
+            <div class="alert">
+              <p class="alert-text">Alert text</p>
+              <svg class="alert-icon"></svg>
+            </div>
+            <h4>HTML</h4>
+            <p>
+              &lt;div class="alert">&gt;<br />
+              &lt;p class="alert-text"&gt;Alert text&lt;/p&gt;<br />
+              &lt;svg class="alert-icon"&gt;&lt;/svg&gt;<br />
+              &lt;/div&gt;
+            </p>
+            <h4>CSS</h4>
+            <p>
+              .alert { <br />
+              --alert-text-color: black;<br />
+              --alert-accent-color: tomato;<br />
+              } <br />
+              <br />
+              .alert-text { <br />
+              color: var(--alert-text-color);<br />
+              border: 1px solid var(--alert-accent-color);<br />
+              } <br />
+              <br />
+              .alert-icon { <br />
+              background-color: var(--alert-accent-color);<br />
+              }
+            </p>
+            <p></p>
           </li>
 
           <!-- Redefinirea valorilor -->
           <li>
             <h3>Redefinirea valorilor</h3>
+            <p>
+              Variabilele pot fi redefinite local cu alte valori. Pentru a face
+              acest lucru, trebuie să declarați o variabilă cu același nume ca
+              în strămoș și să-i setați valoarea necesară.
+            </p>
+            <ul>
+              <li class="alert">Default</li>
+              <li class="alert success">Success</li>
+              <li class="alert warning">Warning</li>
+              <li class="alert error">Error</li>
+            </ul>
+            <h4>HTML</h4>
+            <p>li class="alert"&gt;Default/li</p>
+            <p>li class="alert success"&gt;Success/li</p>
+            <p>li class="alert warning"&gt;Warning/li</p>
+            <p>li class="alert error"&gt;Error/li</p>
+            <h4>CSS</h4>
+            <p>
+              body { <br />
+              font-family: sans-serif;<br />
+              line-height: 1.5;<br />
+              } <br />
+              <br />
+              .alert { <br />
+              --alert-text-color: black;<br />
+              <br />
+              color: var(--alert-text-color);<br />
+              } <br />
+              <br />
+              .alert.success { <br />
+              --alert-text-color: green;<br />
+              } <br />
+              <br />
+              .alert.warning { <br />
+              --alert-text-color: orange;<br />
+              } <br />
+              <br />
+              .alert.error { <br />
+              --alert-text-color: red;<br />
+              }
+            </p>
           </li>
         </ul>
       </section>

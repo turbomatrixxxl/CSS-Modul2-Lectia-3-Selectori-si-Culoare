@@ -1,0 +1,163 @@
+.link {
+  color: teal;
+}
+
+.link:hover {
+  color: tomato;
+}
+.social-links .link {
+  color: teal;
+}
+
+.social-links .link:hover {
+  color: tomato;
+}
+
+.menu > li {
+  border: 1px solid tomato;
+}
+
+a[title] {
+  color: rgb(58, 128, 0);
+}
+
+.social-media-links .link {
+  color: tomato;
+}
+
+/* Doi sau mai mulți selectori sunt separați prin virgulă */
+.social-media-links .link:hover,
+.social-media-links .link:focus {
+  color: green;
+}
+
+.schedule-body > tr:hover {
+  background-color: tomato;
+  color: white;
+}
+
+/* Marcaj tabel */
+.schedule {
+  border-collapse: collapse;
+}
+
+.schedule th,
+.schedule td {
+  padding: 8px;
+  border: 1px solid #212121;
+}
+
+.text {
+  color: tomato;
+}
+
+.text-new {
+  background-color: tomato;
+  color: white;
+}
+
+/* Ce culoare va fi textul paragrafelor? */
+p {
+  color: blue;
+  background-color: yellow;
+}
+
+p {
+  color: black;
+}
+
+/* Specificitatea - 0 0 1 0 */
+.post-title {
+  color: green;
+}
+
+/* Specificitatea - 0 0 1 1 */
+.post > h1 {
+  color: red;
+}
+
+/* ✅ Specificitatea - 0 0 2 0 */
+.post > .post-title {
+  color: orange;
+}
+
+/* Specificitatea - 0 0 0 1 */
+a {
+  color: green;
+}
+
+/* Specificitatea - 0 0 1 0 */
+.post-link {
+  color: orange;
+}
+
+/* Specificitatea - 0 0 1 1 */
+a.post-link {
+  color: blue;
+}
+
+/* Specificitatea - 0 0 2 0 */
+.post > .post-link {
+  color: red;
+}
+
+/* ✅ Specificitatea - 0 0 2 1 */
+.post > a.post-link {
+  color: brown;
+}
+
+:root {
+  --brand-color: #3f51b5;
+}
+
+.section {
+  /* Alte stiluri */
+  border: 2px solid var(--brand-color);
+}
+
+.section-title {
+  /* Alte stiluri */
+  color: var(--brand-color);
+}
+
+.section-title::before {
+  /* Alte stiluri */
+  background-color: var(--brand-color);
+}
+
+.alert {
+  --alert-text-color: black;
+  --alert-accent-color: tomato;
+}
+
+.alert-text {
+  color: var(--alert-text-color);
+  border: 1px solid var(--alert-accent-color);
+}
+
+.alert-icon {
+  background-color: var(--alert-accent-color);
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.alert {
+  --alert-text-color: black;
+
+  color: var(--alert-text-color);
+}
+
+.alert.success {
+  --alert-text-color: green;
+}
+
+.alert.warning {
+  --alert-text-color: orange;
+}
+
+.alert.error {
+  --alert-text-color: red;
+}
